@@ -1,3 +1,5 @@
+// ImageGenerator.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
@@ -54,7 +56,7 @@ export default function ImageGenerator({ onImageSelected }) {
         />
 
         <div>
-          Nombre d'images à générer: {n}
+          Nombre d&apos;images à générer: {n}
           <input
             type="range"
             min="1"
@@ -66,7 +68,7 @@ export default function ImageGenerator({ onImageSelected }) {
         </div>
 
         <div>
-          Taille de l'image: {size}
+          Taille de l&apos;image: {size}
           <select
             className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             value={size}
@@ -83,7 +85,7 @@ export default function ImageGenerator({ onImageSelected }) {
           type="submit"
           className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Genérer
+          Générer
         </button>
       </form>
 
@@ -94,13 +96,13 @@ export default function ImageGenerator({ onImageSelected }) {
       ) : (
         images && images.length > 0 ? (
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Generated Images</h2>
+            <h2 className="text-xl font-bold mb-4">Images générées</h2>
             <select
               className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               value={selectedImageIndex}
               onChange={(e) => handleImageSelect(e.target.value)}
             >
-              <option value={null}>Select an Image</option>
+              <option value={null}>Sélectionnez une image</option>
               {images.map((_, index) => (
                 <option key={index} value={index}>
                   Image {index + 1}

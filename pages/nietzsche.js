@@ -86,7 +86,7 @@ export default function Nietzsche() {
             !generatedText ? 'cursor-not-allowed opacity-50' : 'hover:bg-indigo-700'
           }`}
         >
-          Genérer l'extrait
+          Générer l&apos;extrait
         </button>
       </div>
     </div>

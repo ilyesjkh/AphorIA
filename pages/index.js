@@ -1,3 +1,5 @@
+// index.js
+
 import React from 'react';
 import { useRouter } from 'next/router';
 import Navbar from '../components/Navbar';
@@ -18,7 +20,7 @@ export default function Index() {
         <div className="text-center text-white">
           <h1 className="text-4xl font-bold mb-8">Bienvenue dans le monde de la création littéraire !</h1>
           <p className="text-lg mb-8">
-            Avez-vous toujours voulu écrire comme Nietzsche ou La Fontaine ? Maintenant, vous avez la chance de briller littérairement (vous n'en aurez pas d'autre). Explorez le pouvoir des mots et de la créativité avec notre générateur de textes par intelligence artificielle.
+            Avez-vous toujours voulu écrire comme Nietzsche ou La Fontaine ? Maintenant, vous avez la chance de briller littérairement (vous n&apos;en aurez pas d&apos;autre). Explorez le pouvoir des mots et de la créativité avec notre générateur de textes par intelligence artificielle.
           </p>
         </div>
 
