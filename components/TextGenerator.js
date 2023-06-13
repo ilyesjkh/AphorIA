@@ -1,5 +1,3 @@
-// TextGenerator.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
@@ -11,12 +9,11 @@ const override = css`
   border-color: red;
 `;
 
-export default function TextGenerator({ onGeneratePdf, onPrompt }) {
+export default function TextGenerator({ onGeneratePdf, onPrompt, onModelChange, selectedModel }) {
   const [text, setText] = useState('');
   const [output, setOutput] = useState('');
   const [maxTokens, setMaxTokens] = useState(60);
   const [temperature, setTemperature] = useState(0.5);
-  const [model, setModel] = useState('nietzsche'); // Default model is 'nietzsche'
   const [loading, setLoading] = useState(false);
 
   const generateText = async (e) => {
@@ -28,7 +25,7 @@ export default function TextGenerator({ onGeneratePdf, onPrompt }) {
         text,
         max_tokens: parseInt(maxTokens),
         temperature: parseFloat(temperature),
-        model, // Pass the selected model
+        model: selectedModel, // Use the selected model value
       });
 
       const generatedText = res.data.choices[0].text;
@@ -83,6 +80,11 @@ export default function TextGenerator({ onGeneratePdf, onPrompt }) {
     setLoading(false);
   };
 
+  const handleModelChange = (e) => {
+    const selectedModel = e.target.value;
+    onModelChange(selectedModel); // Call the callback function from the parent component
+  };
+
   return (
     <div>
       <form onSubmit={generateText} className="space-y-4">
@@ -135,8 +137,8 @@ export default function TextGenerator({ onGeneratePdf, onPrompt }) {
           </label>
           <select
             id="model"
-            value={model}
-            onChange={(e) => setModel(e.target.value)}
+            value={selectedModel}
+            onChange={handleModelChange}
             className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           >
             <option value="nietzsche">Nietzsche</option>

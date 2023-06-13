@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import TextGenerator from '../components/TextGenerator';
 import ImageGenerator from '../components/ImageGenerator';
@@ -55,6 +54,10 @@ export default function Nietzsche() {
     }
   };
 
+  const handleModelChange = (selectedModel) => {
+    setModel(selectedModel);
+  };
+
   return (
     <div>
       <Navbar />
@@ -66,7 +69,7 @@ export default function Nietzsche() {
           <TextGenerator
             onGeneratePdf={setGeneratedText}
             onPrompt={setPrompt}
-            onModelChange={setModel}
+            onModelChange={handleModelChange}
             selectedModel={model}
           />
         </div>

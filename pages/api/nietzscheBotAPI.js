@@ -1,5 +1,3 @@
-// nietzscheBotAPI.js
-
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
@@ -14,10 +12,12 @@ export default async function handler(req, res) {
   }
 
   try {
-    let model = 'davinci:ft-personal-2023-06-05-22-50-42'; // Default model is 'nietzsche'
+    let model = 'davinci'; // Default model is 'nietzsche'
 
     if (req.body.model === 'fontaine') {
       model = 'davinci:ft-personal-2023-06-12-21-22-01';
+    } else if (req.body.model === 'nietzsche') {
+      model = 'davinci:ft-personal-2023-06-05-22-50-42';
     }
 
     const gptResponse = await openai.createCompletion({
