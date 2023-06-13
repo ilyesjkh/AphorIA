@@ -31,7 +31,7 @@ export default function Auth() {
 
   const handleSignIn = async () => {
     try {
-      const { user, error } = await supabase.auth.signIn({
+      const { user, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
@@ -49,13 +49,16 @@ export default function Auth() {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    handleSignIn();
+  };
+
   return (
     <div className="max-w-sm p-6 bg-white rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Authentication</h2>
-      {errorMessage && (
-        <p className="text-red-500 mb-4">{errorMessage}</p>
-      )}
-      <form className="space-y-4">
+      {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email" className="block font-medium">
             Email
@@ -89,8 +92,7 @@ export default function Auth() {
             Sign Up
           </button>
           <button
-            type="button"
-            onClick={handleSignIn}
+            type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Sign In
