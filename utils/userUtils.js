@@ -1,4 +1,4 @@
-import { supabase } from '../api/supabase';
+import { supabase } from '../pages/api/supabase';
 
 export const getUser = async () => {
   try {

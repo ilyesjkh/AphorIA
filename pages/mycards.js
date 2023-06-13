@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import AphorismCardWithSignature from '../components/AphorismCardWithSignature';
 import Navbar from '../components/Navbar';
-import { supabase } from '../pages/api/supabase';
-import { getUser } from '../pages/utils/userUtils';
+import { supabase } from './api/supabase';
+import { getUser } from '../utils/userUtils';
 
 export default function MyCards() {
   const [userCards, setUserCards] = useState([]);

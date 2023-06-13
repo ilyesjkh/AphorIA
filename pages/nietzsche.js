@@ -5,8 +5,8 @@ import TextGenerator from '../components/TextGenerator';
 import ImageGenerator from '../components/ImageGenerator';
 import AphorismCard from '../components/AphorismCard';
 import PdfGeneration from '../components/PdfGeneration';
-import { supabase } from '../pages/api/supabase';
-import { getUser } from '../pages/utils/userUtils';
+import { supabase } from './api/supabase';
+import { getUser } from '../utils/userUtils';
 
 export default function Nietzsche() {
   const [generatedText, setGeneratedText] = useState('');
