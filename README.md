@@ -25,6 +25,8 @@ Amusez-vous à explorer l'univers littéraire généré par l'intelligence artif
 - Vercel : Plateforme de déploiement et d'hébergement.
 - Supabase : Base de données backend.
 
+La plateforme Vercel permet de faire du CI/CD grâce à l'outil de déploiement et de test automatique depuis le dépôt git.
+
 ## Auteurs
 
 - Rémi Guillot et Ilyès Abdellouli
