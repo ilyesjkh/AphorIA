@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import { supabase } from '../pages/api/supabase';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const router = useRouter();
 
   const handleSignUp = async () => {
     try {
@@ -13,11 +17,13 @@ export default function Auth() {
       });
 
       if (error) {
-        console.error('Error signing up:', error);
+        setErrorMessage(error.message);
         return;
       }
 
       console.log('Sign up successful:', user);
+      // Refresh the page after successful signup
+      router.reload();
     } catch (error) {
       console.error('Error signing up:', error);
     }
@@ -25,12 +31,19 @@ export default function Auth() {
 
   const handleSignIn = async () => {
     try {
-      const { user, error } = await supabase.auth.signInWithPassword({
+      const { user, error } = await supabase.auth.signIn({
         email,
         password,
       });
 
+      if (error) {
+        setErrorMessage(error.message);
+        return;
+      }
+
       console.log('Sign in successful:', user);
+      // Refresh the page after successful sign in
+      router.reload();
     } catch (error) {
       console.error('Error signing in:', error);
     }
@@ -39,6 +52,9 @@ export default function Auth() {
   return (
     <div className="max-w-sm p-6 bg-white rounded shadow-md">
       <h2 className="text-2xl font-bold mb-4">Authentication</h2>
+      {errorMessage && (
+        <p className="text-red-500 mb-4">{errorMessage}</p>
+      )}
       <form className="space-y-4">
         <div>
           <label htmlFor="email" className="block font-medium">
