@@ -1,38 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projet AphorIA
 
-## Getting Started
+Génération d'extraits littéraires par intelligence artificielle.
 
-First, run the development server:
+## Testez l'application
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+L'application AphorIA est déployée et accessible à l'adresse suivante : [https://aphor-k3t0ruc1w-ilyesjkh.vercel.app/](https://aphor-k3t0ruc1w-ilyesjkh.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+N'hésitez pas à visiter le lien ci-dessus pour découvrir les fonctionnalités de génération de textes et d'images. Vous pouvez sélectionner différents modèles, fournir les informations nécessaires et explorer les générations enregistrées.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Amusez-vous à explorer l'univers littéraire généré par l'intelligence artificielle !
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Fonctionnalités
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Génération de textes à partir de deux modèles fine tunés basés sur des écrits littéraires : les Aphorismes Nietzschéens et les fables de La Fontaine.
+- Génération d'images d'illustration.
+- Enregistrement des générations pour consultation ultérieure.
+- Consultation de toutes les créations du site.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Outils utilisés
 
-## Learn More
+- API d'OpenAI : Complétion de texte, Génération d'images, fine tuning.
+- Next.js : Framework React pour le développement web.
+- Tailwind CSS : Framework CSS pour la conception d'interfaces.
+- Vercel : Plateforme de déploiement et d'hébergement.
+- Supabase : Base de données backend.
 
-To learn more about Next.js, take a look at the following resources:
+## Auteurs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Rémi Guillot et Ilyès Abdellouli
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Remerciements
 
-## Deploy on Vercel
+Nous tenons à remercier l'équipe d'OpenAI pour leur puissante API et tous les développeurs de bibliothèques open source utilisées dans ce projet. Votre travail est grandement apprécié !
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
