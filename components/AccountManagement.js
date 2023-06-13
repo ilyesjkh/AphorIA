@@ -1,11 +1,13 @@
-// AccountManagement.js
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import { supabase } from '../pages/api/supabase';
 
 export default function AccountManagement() {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
+
+  const router = useRouter();
 
   useEffect(() => {
     fetchUser();
@@ -63,6 +65,15 @@ export default function AccountManagement() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      router.push('/'); // Redirect to the index page
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
+
   if (!user) {
     return <div>Loading...</div>;
   }
@@ -89,6 +100,12 @@ export default function AccountManagement() {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Update Profile
+        </button>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Logout
         </button>
       </div>
     </div>
